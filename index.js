@@ -32,16 +32,14 @@ app.listen(app.get('port'), function() {
 })
 
 app.post('/webhook/', function (req, res) {
-	console.log(req.payload)
     let messaging_events = req.body.entry[0].messaging
     for (let i = 0; i < messaging_events.length; i++) {
         let event = req.body.entry[0].messaging[i]
         let sender = event.sender.id
-        console.log("event: ", + event)
-        console.log("sender: " + sender)
+        console.log("event: " + event)
         if (event.message && event.message.text) {
             let text = event.message.text
-            sendTextMessage(sender, "Salut (futur?) citoyen du Petiou Payi! Je suis un bot et je suis en train d'être configuré ;)")
+            sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
         }
     }
     res.sendStatus(200)
