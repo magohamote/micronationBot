@@ -1,0 +1,29 @@
+{
+  "name": "micronation",
+  "version": "1.0.0",
+  "description": "bot for the petiou payi facebook page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/magohamote/micronationBot.git"
+  },
+  "keywords": [
+    "bot",
+    "micronation",
+    "facebook"
+  ],
+  "author": "Cedric Rolland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/magohamote/micronationBot/issues"
+  },
+  "homepage": "https://github.com/magohamote/micronationBot#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "request": "^2.72.0"
+  }
+}
