@@ -47,10 +47,10 @@ app.post('/webhook/', function (req, res) {
         if (/[h,H]i/.test(text) || /[s,S]alut/.test(text) || /[b,B]onjour/.test(text) || /[h,H]ello/.test(text)) {
             sendTextMessage(sender, "Salut toi!");
             setTimeout(function() {
-                  self.bot.reply(message, "Je suis le bot micronational (yé).");
+                  sendTextMessage(message, "Je suis le bot micronational (yé).");
                 }, 200);
             setTimeout(function() {
-                  self.bot.reply(message, "Tu peux me demander plein de trucs parmis cette liste de chose:\n- les coordonnées de la micronation");
+                  sendTextMessage(message, "Tu peux me demander plein de trucs parmis cette liste de chose:\n- les coordonnées de la micronation");
                 }, 200);
         }
 
