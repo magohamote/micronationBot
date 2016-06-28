@@ -79,6 +79,8 @@ app.post('/webhook/', function (req, res) {
             sendTextMessage(sender, blagues[getRandomInt(0, blagues.length-1)]);   
         } else if (/.*[c,C]ontrep[è,e]t.*/.test(text)) {
             sendTextMessage(sender, contrepeteries[getRandomInt(0, contrepeteries.length-1)]);   
+        } else if (/.*plus.*/.test(text) && /.*belle.*/.test(text) && /.*\?.*/.test(text)) {
+            sendTextMessage(sender, "Mais quelle question, c'est Tianyi Lin bien évidemment.");
         } else {
             sendTextMessage(sender, "Désolé on ne m'a pas encore codé pour répondre à ça.");   
             setTimeout(function() {
