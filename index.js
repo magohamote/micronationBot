@@ -44,7 +44,7 @@ app.post('/webhook/', function (req, res) {
 
         let text = event.message.text
 
-        if ((/hi/||/{s,S}alut/).test(text)) {
+        if ((/hi/||/[s,S]alut/).test(text)) {
             sendTextMessage(sender, "hi haha")
         }
 
