@@ -42,25 +42,35 @@ app.post('/webhook/', function (req, res) {
 
       if (event.message && event.message.text) {
 
-        let text = event.message.text
+        let text = event.message.text;
 
-        if (/hi/.test(text) || /[s,S]alut/.test(text)) {
-            sendTextMessage(sender, "hi haha")
+        if (/[h,H]i/.test(text) || /[s,S]alut/.test(text) || /[b,B]onjour/.test(text) || /[h,H]ello/.test(text)) {
+            sendTextMessage(sender, "Salut toi!");
+            setTimeout(function() {
+                  self.bot.reply(message, "Je suis le bot micronational (yé).");
+                }, 200);
+            setTimeout(function() {
+                  self.bot.reply(message, "Tu peux me demander plein de trucs parmis cette liste de chose:\n- les coordonnées de la micronation");
+                }, 200);
+        }
+
+        if (/.*[c,C]oordonn[e,é].+/.test(text)) {
+            sendTextMessage(sender, "Les coordonnées de la micronation sont: 46.648059, 6.437642");
         }
 
         if (text === 'Generic') {
             sendGenericMessage(sender)
             continue
         }
-        sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+
       }
       if (event.postback) {
-        let text = JSON.stringify(event.postback)
-        sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+        let text = JSON.stringify(event.postback);
+        sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token);
         continue
       }
     }
-    res.sendStatus(200)
+    res.sendStatus(200);
   })
 
 function sendTextMessage(sender, text) {
