@@ -44,11 +44,8 @@ app.post('/webhook/', function (req, res) {
 
         let text = event.message.text
 
-        switch(text) {
-            case (/hi/.test(text)):
-                sendTextMessage(sender, "hi haha")
-            default:
-                sendTextMessage(sender, "wut?")
+        if ((/hi/||/{s,S}alut/).test(text)) {
+            sendTextMessage(sender, "hi haha")
         }
 
         if (text === 'Generic') {
