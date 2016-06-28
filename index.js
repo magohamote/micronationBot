@@ -50,23 +50,23 @@ app.post('/webhook/', function (req, res) {
                   sendTextMessage(sender, "Je suis le bot micronational (yé).");
                 }, 200);
             setTimeout(function() {
-                  sendTextMessage(sender, "Tu peux me demander plein de trucs comme:\n- les coordonnées de la micronation\n- les dates du Scabryollaud\n- une blague?");
+                  sendTextMessage(sender, "Tu peux me demander plein de trucs comme:\n- les coordonnées de la micronation\n- les dates du Scabryollaud");
                 }, 200);
-        }
-
-        if (/.*[c,C]oordonn[e,é].+/.test(text)) {
+        } else if (/.*[c,C]oordonn[e,é].+/.test(text)) {
             sendTextMessage(sender, "Les coordonnées de la micronation sont: 46.648059, 6.437642");
-        }
-
-        if (/.*[s,S]cabr.+/.test(text) && /.*[d,D]ate.*/.test(text)) {
+        } else if (/.*[s,S]cabr.+/.test(text) && /.*[d,D]ate.*/.test(text)) {
             sendTextMessage(sender, "le Scabryollaud se passe du 1er au 9 juillet du calendrier païen. (Be there, ça va être rigolo)");   
+        } else {
+            sendTextMessage(sender, "Désolé on ne m'a pas encore codé pour répondre à ça.");   
+            setTimeout(function() {
+                  sendTextMessage(sender, "Tu peux me demander des trucs comme:\n- les coordonnées de la micronation\n- les dates du Scabryollaud");
+                }, 200);
         }
 
         if (text === 'Generic') {
             sendGenericMessage(sender)
             continue
         }
-
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback);
