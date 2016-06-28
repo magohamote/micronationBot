@@ -45,7 +45,7 @@ app.post('/webhook/', function (req, res) {
         let text = event.message.text
 
         switch(text) {
-            case (text.match(/hi/)).input():
+            case (/hi/.test(text)):
                 sendTextMessage(sender, "hi haha")
             default:
                 sendTextMessage(sender, "wut?")
