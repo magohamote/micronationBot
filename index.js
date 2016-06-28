@@ -5,12 +5,23 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const blague = [
+const blagues = [
     "Ta mère est tellement grosse qu'il y a un décalage horaire entre ses deux fessses !",
     "Deux secrétaires papotent pendant une pause. La première demande à l'autre :\n- Tu fumes après l'amour ?\n- Je ne sais pas, j'ai jamais regardé.",
     "Ta vie. (outch, salo)",
     "J'ai cru que Mozart était mort mais mozzarella (c'est une blague carambar)",
-    "C'est la blague de la cravate : elle est longue et plate. (mon dieu mais c'est tellement nul.)"
+    "C'est la blague de la cravate : elle est longue et plate. (mon dieu mais c'est tellement nul.)",
+    "C'est deux otaries qui se racontent des blagues. Une des deux rigoles et l'autre dit : \"Oh! T'as ris\"",
+    "J'ai pas trop envie de te raconter une blague là en fait."
+]
+
+const contrepeteries = [
+    "L'Afrique est bonne hôtesse et ses canicules vous emballent.",
+    "Le boutre du sultan remontait le confluent de la garonne",
+    "Juliette revenait de la ferme pleine d'espoir, jusqu'au pont du Jura.",
+    "Les envahisseurs arrivèrent à pied par la Chine.",
+    "Salut Patrick!",
+    "Parle plus fort, elle me brouille l'écoute!"
 ]
 
 app.set('port', (process.env.PORT || 5000))
@@ -58,18 +69,20 @@ app.post('/webhook/', function (req, res) {
                   sendTextMessage(sender, "Je suis le bot micronational (yé).");
                 }, 200);
             setTimeout(function() {
-                  sendTextMessage(sender, "Tu peux me demander plein de trucs comme:\n- les coordonnées de la micronation\n- les dates du Scabryollaud\n- une blague");
+                  sendTextMessage(sender, "Tu peux me demander plein de trucs comme:\n- les coordonnées de la micronation\n- les dates du Scabryollaud\n- une blague\n- une contrepèteries");
                 }, 400);
         } else if (/.*[c,C]oordonn[e,é].+/.test(text)) {
             sendTextMessage(sender, "Les coordonnées de la micronation sont: 46.648059, 6.437642");
         } else if (/.*[s,S]cabr.+/.test(text) && /.*[d,D]ate.*/.test(text)) {
             sendTextMessage(sender, "le Scabryollaud se passe du 1er au 9 juillet du calendrier païen. (Be there, ça va être rigolo)");   
         } else if (/.*[b,B]lague.*/.test(text)) {
-            sendTextMessage(sender, blague[getRandomInt(0, blague.length-1)]);   
+            sendTextMessage(sender, blagues[getRandomInt(0, blagues.length-1)]);   
+        } else if (/.*[c,C]ontrep[è,e]t.*/.test(text)) {
+            sendTextMessage(sender, contrepeteries[getRandomInt(0, contrepeteries.length-1)]);   
         } else {
             sendTextMessage(sender, "Désolé on ne m'a pas encore codé pour répondre à ça.");   
             setTimeout(function() {
-                  sendTextMessage(sender, "Tu peux me demander des trucs comme:\n- les coordonnées de la micronation\n- les dates du Scabryollaud\n- une blague");
+                  sendTextMessage(sender, "Tu peux me demander des trucs comme:\n- les coordonnées de la micronation\n- les dates du Scabryollaud\n- une blague\n- une contrepèteries");
                 }, 200);
         }
 
