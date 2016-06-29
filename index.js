@@ -75,7 +75,7 @@ app.post('/webhook/', function (req, res) {
             setTimeout(function() {
                   sendTextMessage(sender, "Tu peux me demander plein de trucs comme:\n- les coordonnées de la micronation\n- les dates du Scabryollaud\n- une blague\n- une contrepèteries");
                 }, 400);
-        } else if (/.*[c,C]oordonn[e,é].+/.test(text)) {
+        } else if (/.*[c,C]oordonn[e,é].+/.test(text) || (/.*o[u,ù].+/.test(text) && /.*[p,P]etiou.+/.test(text) && /.*[p,P]ayi.+/.test(text))) {
             sendTextMessage(sender, "Les coordonnées de la micronation sont: 46.648059, 6.437642");
         } else if (/.*[s,S]cabr.+/.test(text) && /.*[d,D]ate.*/.test(text)) {
             sendTextMessage(sender, "le Scabryollaud se passe du 1er au 9 juillet du calendrier païen. (Be there, ça va être rigolo)");   
