@@ -21,7 +21,9 @@ const contrepeteries = [
     "Juliette revenait de la ferme pleine d'espoir, jusqu'au pont du Jura.",
     "Les envahisseurs arrivèrent à pied par la Chine.",
     "Salut Patrick!",
-    "Parle plus fort, elle me brouille l'écoute!"
+    "Parle plus fort, elle me brouille l'écoute!",
+    "Salut Fred!",
+    "Je te laisse le choix dans la date"
 ]
 
 app.set('port', (process.env.PORT || 5000))
@@ -80,7 +82,7 @@ app.post('/webhook/', function (req, res) {
         } else if (/.*[c,C]ontrep[è,e]t.*/.test(text)) {
             sendTextMessage(sender, contrepeteries[getRandomInt(0, contrepeteries.length-1)]);   
         } else if (/.*plus.*/.test(text) && /.*belle.*/.test(text) && /.*\?.*/.test(text)) {
-            sendTextMessage(sender, "Mais quelle question, c'est Tianyi Lin bien évidemment.");
+            sendTextMessage(sender, "Mais quelle question, c'est Tianyi Lin bien évidemment.±");
         } else {
             sendTextMessage(sender, "Désolé on ne m'a pas encore codé pour répondre à ça.");   
             setTimeout(function() {
