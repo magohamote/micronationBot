@@ -79,9 +79,9 @@ app.post('/webhook/', function (req, res) {
             sendTextMessage(sender, "Les coordonnées de la micronation sont: 46.648059, 6.437642");
         } else if (/.*[s,S]cabr.+/.test(text) && /.*[d,D]ate.*/.test(text)) {
             sendTextMessage(sender, "le Scabryollaud se passe du 1er au 9 juillet du calendrier païen. (Be there, ça va être rigolo)");   
-        } else if (/.*[b,B]lague.*/.test(text)) {
+        } else if (/.*[b,B]lague.*/.test(text) || /.*[j,J]oke.*/.test(text)) {
             sendTextMessage(sender, blagues[getRandomInt(0, blagues.length-1)]);   
-        } else if (/.*[c,C]ontrep[è,e]t.*/.test(text)) {
+        } else if (/.*[c,C]ontrep[è,e,é]t.*/.test(text) || /.*[c,C]ontrp[è,e,é]t.*/.test(text)) {
             sendTextMessage(sender, contrepeteries[getRandomInt(0, contrepeteries.length-1)]);   
         } else if (/.*plus.*/.test(text) && /.*belle.*/.test(text) && /.*\?.*/.test(text)) {
             sendTextMessage(sender, "Mais quelle question, c'est Tianyi Lin bien évidemment.±");
