@@ -84,9 +84,11 @@ app.post('/webhook/', function (req, res) {
         } else if (/.*[c,C]ontrep[è,e,é]t.*/.test(text) || /.*[c,C]ontrp[è,e,é]t.*/.test(text)) {
             sendTextMessage(sender, contrepeteries[getRandomInt(0, contrepeteries.length-1)]);   
         } else if (/.*plus.*/.test(text) && /.*belle.*/.test(text) && /.*\?.*/.test(text)) {
-            sendTextMessage(sender, "Mais quelle question, c'est Tianyi Lin bien évidemment.±");
+            sendTextMessage(sender, "Mais quelle question, c'est Tianyi Lin bien évidemment.");
+        } else if (/.*[m,M]erci.+/.test(text) || /.*[t,T]hank.+/.test(text)) {
+            sendTextMessage(sender, "De rien ;)");
         } else {
-            sendTextMessage(sender, "Désolé on ne m'a pas encore codé pour répondre à ça.");   
+            sendTextMessage(sender, "Désolé on ne m'a pas encore codé pour répondre à ça. (Ou alors t'écris trop mal pour que je comprenne)");   
             setTimeout(function() {
                   sendTextMessage(sender, "Tu peux me demander des trucs comme:\n- les coordonnées de la micronation\n- les dates du Scabryollaud\n- une blague\n- une contrepèteries");
                 }, 200);
