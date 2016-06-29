@@ -12,7 +12,9 @@ const blagues = [
     "J'ai cru que Mozart était mort mais mozzarella (c'est une blague carambar)",
     "C'est la blague de la cravate : elle est longue et plate. (mon dieu mais c'est tellement nul.)",
     "C'est deux otaries qui se racontent des blagues. Une des deux rigoles et l'autre dit : \"Oh! T'as ris\"",
-    "J'ai pas trop envie de te raconter une blague là en fait."
+    "J'ai pas trop envie de te raconter une blague là en fait.",
+    "C'est un type qui entre dans un bar il dit \"Salut c'est moi!\" mais en fait c'était pas lui.",
+    "C'est 2 muffins dans un four, y en a un qui dit : \"Il fait chaud ici!\" et l'autre répond: \"AAAhhhrhewrjesh un muffin qui parle!\""
 ]
 
 const contrepeteries = [
