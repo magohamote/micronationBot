@@ -87,6 +87,8 @@ app.post('/webhook/', function (req, res) {
             sendTextMessage(sender, "Mais quelle question, c'est Tianyi Lin bien évidemment.");
         } else if (/.*[m,M]erci.+/.test(text) || /.*[t,T]hank.+/.test(text)) {
             sendTextMessage(sender, "De rien ;)");
+        } else if (/.*[r,R]oi.+/.test(text)) {
+            sendTextMessage(sender, "Le Roi du Petiou Payi est Valentin 1er.");
         } else {
             sendTextMessage(sender, "Désolé on ne m'a pas encore codé pour répondre à ça. (Ou alors t'écris trop mal pour que je comprenne)");   
             setTimeout(function() {
